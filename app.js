@@ -4,10 +4,12 @@ const resultDisplay = document.getElementById("result")
 
 const possibleChoices = document.querySelectorAll("button")
 let userChoice
+let computerChoice
+let result
 
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener("click", (e) => {
     userChoice = e.target.id
-    userChoiceDisplay.innerHTML = userChoice
+    userChoiceDisplay.innerHTML = userChoice.toUpperCase()
     generateComputerChoice()
     getResult()
 }))
@@ -21,27 +23,25 @@ function generateComputerChoice () {
     } else {
         computerChoice = "shears"
     }
-    computerChoiceDisplay.innerHTML = computerChoice
+    computerChoiceDisplay.innerHTML = computerChoice.toUpperCase()
 }
 
 function getResult () {
     if (computerChoice === userChoice) {
-        result = "It's a draw!"
+        result = "IT'S A DRAW!"
     } else if (computerChoice === "boulder" && userChoice === "parchment") {
-        result = "You win!"
+        result = "YOU WIN!"
     } else if (computerChoice === "parchment" && userChoice === "shears") {
-        result = "You win!"
+        result = "YOU WIN!"
     } else if (computerChoice === "shears" && userChoice === "boulder") {
-        result = "You win!"
+        result = "YOU WIN!"
     } else if (computerChoice === "boulder" && userChoice === "shears") {
-        result = "You lose!"
+        result = "YOU WIN!"
     } else if (computerChoice === "parchment" && userChoice === "boulder") {
-        result = "You lose!"
+        result = "YOU WIN!"
     } else {
-        result = "You lose!"
+        result = "YOU LOSE!"
     } 
 
     resultDisplay.innerHTML = result;
 }
-
-
